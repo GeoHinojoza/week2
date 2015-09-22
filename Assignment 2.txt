@@ -21,28 +21,14 @@
 
 <style>
  
-   body, html, #map-container {
-		height: 100%;
-		width: 100%;
-		margin: 0 auto;
-    }
-    
-</style>
-
-
-<style>
-    
-   body, html, #map-container {
+   body, html,  #map-container {
       height:400px;
       width:500px;
     }
   
-    body, html, .box{
+   body, html #box {
       height:200px;
       width:200px;
-    }
-    
-  body, html, .red{
       background-color:tomato;
       border:3px double red;
       
