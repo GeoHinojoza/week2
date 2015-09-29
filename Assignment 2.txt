@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>assignment2.html</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>assignment2.html</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
 	<link rel="stylesheet" href="style.css" />
 
 </head>
 <body>
   
-  	<div id="map-container"></div>
-  	<div class="red"</div>
+   	<div id="map-container"></div>
+  	<div class="red box"></div>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
   	<script src="script.js"></script>
@@ -20,35 +20,43 @@
 </html>
 
 <style>
- 
-   body, html,  #map-container {
+    
+   #map-container{
       height:400px;
       width:500px;
     }
   
-   body, html #box {
+   .red{
       height:200px;
       width:200px;
-      background-color:tomato;
-      border:3px double red;
+	  
+	}  
+    
+   .box{
+	background-color:tomato;
+      	border:3px double red;
       
     }
     
 </style>
 
 <script>
-    var map = L.map('map-container');
-    map.setView([44.971724,-93.243239],16);
-    L.tile('http://{s}.tile.osm.org/{z}/{x}/{y}.png (L.tileLayer)');
-   $.GetJSON("https://dl.dropboxusercontent.com/u/8550761/wilson-library.geojson"), function(data) {
-   
-   var geojson = new L.geoJson(data, {
-				onEachFeature: function (feature, layer) {
-					layer.bindPopup(feature.properties.name);
-				}
-   
-    $.div class:red box;
-    ($(<'b'>).click(function(e){<'Hey'>}))
     
-  </script>
-  </body>
+    var map = L.map('map-container');
+    
+    map.setView([44.971724,-93.243239],16);
+    
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+  
+    $.GetJSON('https://dl.dropboxusercontent.com/u/8550761/wilson-library.geojson',function(data){
+   
+       var geojson = new L.geoJson(data).addTo(map);
+	});
+	
+	$(".red.box").click(function(e){
+		alert("Hey Click")
+	});
+	   
+    
+</script>
+
